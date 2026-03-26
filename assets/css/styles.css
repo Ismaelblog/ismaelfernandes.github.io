@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap");
+
+:root {
+  /* Variáveis de cores */
+  --primary-color: #00021b; /* Cor primária */
+  --secondary-color: #038ceb; /* Cor secundária */
+  --background-color: #000000; /* Cor de fundo */
+  --text-color: #ffffff; /* Cor do texto */
+  --borda-menu: #000433; /* Cor da borda do menu */
+}
+
+/* Seletor universal para resetar margens, preenchimentos e outros estilos padrão dos navegadores */
+* {
+  margin: 0; /* Remove as margens padrão */
+  padding: 0; /* Remove os preenchimentos padrão */
+  box-sizing: border-box; /* Define o modelo de caixa para incluir bordas e preenchimentos no tamanho total do elemento */
+  vertical-align: baseline; /* Alinha os elementos verticalmente ao meio */
+  list-style: none; /* Remove os marcadores de lista */
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+i {
+  color: var(--text-color);
+}
+
+.header {
+  display: flex;
+  flex-direction: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+}
+
+.header__brand .brand__logo {
+  width: 3.25rem;
+  height: 3.25rem;
+}
+
+.header__brand {
+  height: 50px; /* Define a altura do header para 50px */
+}
+
+#toggleTheme {
+  font-size: 1.3rem;
+  color: var(--text-color);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+}
+
+.menu__item {
+  width: 100%;
+}
+
+.menu--mobile {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-between;
+  border-top: 1px solid var(--borda-menu);
+}
+
+.menu--mobile .menu__link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
+}
+
+.menu__link.active .menu__icon,
+.menu__link.active .menu__text {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.menu__icon,
+.menu__text {
+  color: var(--text-color);
+}
+
+.menu__icon {
+  font-size: 1.5rem;
+}
+
+.menu__text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .menu--mobile {
+    display: none;
+  }
+}
