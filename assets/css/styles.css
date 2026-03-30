@@ -24,9 +24,9 @@
   --background-color: #f0f0f0; /* Cor de fundo */
   --text-color: #000000; /* Cor do texto */
   --text-color-secondary: #4a4a4a; /* Cor do texto secundário */
-  --borda-menu: #dcdcdc; /* Cor da borda do menu */
-  --pill-bg: #e0e0e0; /* Fundo dos links */
-  --active-bg: #c0c0c0; /* Fundo do item ativo */
+  --borda-menu: #acdcff; /* Cor da borda do menu */
+  --pill-bg: #d2ecff; /* Fundo dos links */
+  --active-bg: #ffffff; /* Fundo do item ativo */
 }
 
 html[data-theme="light"] .brand__logo {
