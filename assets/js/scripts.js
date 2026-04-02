@@ -1,15 +1,29 @@
+// Alternância entre temas claro e escuro
 const toggleTheme = document.getElementById("toggleTheme");
 const rootHtml = document.documentElement;
 
+function applyTheme(theme) {
+  rootHtml.setAttribute("data-theme", theme);
+
+  if (theme === "dark") {
+    toggleTheme.classList.remove("bi-sun");
+    toggleTheme.classList.add("bi-moon");
+  } else {
+    toggleTheme.classList.remove("bi-moon");
+    toggleTheme.classList.add("bi-sun");
+  }
+}
+
+const savedTheme = localStorage.getItem("theme") || "light";
+applyTheme(savedTheme);
+
 function changeTheme() {
   const currentTheme = rootHtml.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-  currentTheme === "dark"
-    ? rootHtml.setAttribute("data-theme", "light")
-    : rootHtml.setAttribute("data-theme", "dark");
+  applyTheme(newTheme);
 
-  toggleTheme.classList.toggle("bi-sun");
-  toggleTheme.classList.toggle("bi-moon");
+  localStorage.setItem("theme", newTheme);
 }
 
 toggleTheme.addEventListener("click", changeTheme);
