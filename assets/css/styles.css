@@ -81,7 +81,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -482,9 +482,10 @@ main,
 }
 
 .about__text-wrapper h2 {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   text-transform: uppercase;
   margin: 0;
+  margin-bottom: 1rem;
 }
 
 .description__buttons {
@@ -522,7 +523,7 @@ main,
 }
 
 .about__content2 h3 {
-  font-size: 2.5rem;
+  font-size: 1.25rem;
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
@@ -650,10 +651,76 @@ main,
   transform: rotate(180deg);
 }
 
+.contact {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.contact h2 {
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.contact p {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+}
+
+.menu--contato {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 3rem;
+}
+
+.menu--contato a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 10px 20px;
+  transition: transform 0.3s ease;
+}
+
+.menu--contato a:hover {
+  transform: scale(1.1);
+  border-radius: 50px;
+  color: var(--text-color);
+  background-color: var(--borda-menu);
+}
+
+.contact__email {
+  display: inline-block;
+  padding: 15px 40px;
+  border: 1px solid var(--text-color-secondary);
+  border-radius: 50px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.contact__email:hover {
+  border-color: var(--text-color);
+  color: var(--text-color);
+  background-color: var(--borda-menu);
+}
+
 footer p {
   font-size: 0.875rem;
   text-align: center;
   padding: 1rem;
+  margin-top: 1rem;
   margin-bottom: 5rem;
 }
 
@@ -682,6 +749,16 @@ footer p {
   }
 
   h2 {
+    font-size: 2.25rem;
+    letter-spacing: 0.4rem;
+  }
+
+  .about__text-wrapper h2 {
+    font-size: 2.25rem;
+    letter-spacing: 0.4rem;
+  }
+
+  .contact h2 {
     font-size: 2.25rem;
     letter-spacing: 0.4rem;
   }
@@ -816,6 +893,11 @@ footer p {
     padding: 1rem;
   }
 
+  .about__content2 h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
   .btn--projects span {
     font-size: 1.25rem;
   }
@@ -874,6 +956,16 @@ footer p {
   }
 
   h2 {
+    font-size: 3rem;
+    padding-bottom: 1rem;
+  }
+
+  .about__text-wrapper h2 {
+    font-size: 3rem;
+    padding-bottom: 1rem;
+  }
+
+  .contact h2 {
     font-size: 3rem;
     padding-bottom: 1rem;
   }

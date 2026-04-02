@@ -27,3 +27,13 @@ accordionHeaders.forEach((header) => {
       : accordionItem.classList.add("active");
   });
 });
+
+// Fechamento e abertura do menu
+const menuLinks = document.querySelectorAll(".menu__link");
+
+menuLinks.forEach((item) => {
+  item.addEventListener("click", () => {
+    menuLinks.forEach((link) => link.classList.remove("active"));
+    item.classList.add("active");
+  });
+});
