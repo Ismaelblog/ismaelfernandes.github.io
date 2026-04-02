@@ -36,13 +36,17 @@ accordionHeaders.forEach((header) => {
     const accordionItem = header.parentElement;
     const accordionActive = accordionItem.classList.contains("active");
 
-    accordionActive
-      ? accordionItem.classList.remove("active")
-      : accordionItem.classList.add("active");
+    document.querySelectorAll(".accordion__item").forEach((item) => {
+      item.classList.remove("active");
+    });
+
+    if (!accordionActive) {
+      accordionItem.classList.add("active");
+    }
   });
 });
 
-// Fechamento e abertura do menu
+// Escolha do link ativo no menu de navegação
 const menuLinks = document.querySelectorAll(".menu__link");
 
 menuLinks.forEach((item) => {

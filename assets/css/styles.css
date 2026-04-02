@@ -41,8 +41,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Ajuste global para todas as seções */
 section[id] {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 50px;
+}
+
+#home {
+  scroll-margin-top: 50px;
+}
+
+#sobre {
+  scroll-margin-top: 150px;
 }
 
 /* Seletor universal */
@@ -181,7 +190,7 @@ h3 {
 
 .menu--social {
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
   justify-content: center;
 }
 
@@ -258,24 +267,22 @@ h3 {
   color: var(--text-color);
 }
 
-/* O "Molde" - Este contêiner segura o espaço e não deixa nada empurrar */
 .profile__container {
-  width: 200px; /* Defina o tamanho exato que você quer (largura) */
-  height: 200px; /* Defina a altura exata */
-  position: relative; /* Necessário para o posicionamento das imagens dentro */
-  margin: 0 auto; /* Opcional: Centraliza o contêiner se necessário */
-  overflow: hidden; /* Garante que nada saia do molde */
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-/* Estilo básico para ambas as Imagens - ELAS SÃO EMPILHADAS */
 .profile__image {
-  position: absolute; /* Tira do fluxo normal e empilha no mesmo ponto */
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Preenche todo o contêiner parent (200px) */
-  height: 100%; /* Preenche toda a altura */
-  object-fit: cover; /* IMPORTANTE: Ajusta a imagem sem esticar, cortando se necessário */
-  transition: opacity 0.4s ease-in-out; /* Transição suave na troca */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease-in-out;
 }
 
 /* --- ESTADO MODO DARK --- */
@@ -289,8 +296,7 @@ h3 {
   z-index: 1;
 }
 
-/* --- ESTADO MODO CLARO --- */
-/* Quando o <html> tiver o atributo data-theme="light" */
+/* --- ESTADO MODO LIGHT --- */
 [data-theme="light"] .profile__image--dark {
   opacity: 0;
   z-index: 1;
@@ -447,10 +453,6 @@ main,
   display: flex;
   gap: 1rem;
   align-items: center;
-}
-
-#sobre {
-  scroll-margin-top: 150px;
 }
 
 /* Container Pai */
@@ -616,6 +618,14 @@ main,
   border-bottom: none;
 }
 
+.accordion__item {
+  border-bottom: 1px solid #333;
+}
+
+.accordion__item:last-child {
+  border-bottom: none;
+}
+
 .accordion__header span {
   color: var(--text-color);
   font-size: 1.15rem;
@@ -624,17 +634,53 @@ main,
 
 .accordion__item.active .accordion__header {
   background-color: var(--accordion-header-bg);
-  border-bottom: 1px solid #333;
+  border-bottom: 0.01rem solid var(--text-color-secondary);
 }
 
 .accordion__body {
-  display: none;
-  padding: 1.5rem;
-  background-color: var(--accordion-bg);
-  color: var(--text-color-secondary);
-  font-size: 0.9rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+}
+
+.accordion__item.active .accordion__body {
+  max-height: 1000px;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  opacity: 1;
+}
+
+.accordion__body span:first-of-type {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 2px;
+}
+
+.accordion__body span:nth-of-type(2) {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.accordion__body p {
   line-height: 1.6;
-  border-bottom: 1px solid #222;
+  margin-bottom: 10px;
+}
+
+.accordion__body ul {
+  padding-left: 1.2rem;
+}
+
+.accordion__body li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  list-style-type: disc;
 }
 
 .accordion__item.active .accordion__body {
@@ -678,25 +724,42 @@ main,
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  align-items: center;
+  gap: 0.5rem;
   margin-bottom: 3rem;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.menu--contato li {
+  display: flex;
+  justify-content: center;
+  width: 100px;
 }
 
 .menu--contato a {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   color: var(--text-color);
-  font-size: 1rem;
-  padding: 10px 20px;
-  transition: transform 0.3s ease;
+  font-size: 0.85rem;
+  padding: 8px 10px;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .menu--contato a:hover {
-  transform: scale(1.1);
-  border-radius: 50px;
-  color: var(--text-color);
   background-color: var(--borda-menu);
+  color: var(--text-color);
+  transform: scale(1.05);
+}
+
+.menu--mobile .menu__link {
+  padding: 0.5rem 5px;
+  flex: 1;
 }
 
 .contact__email {
@@ -724,6 +787,39 @@ footer p {
   margin-bottom: 5rem;
 }
 
+/* Estilos para telas menores (Mobile) */
+@media (max-width: 480px) {
+  .description__buttons {
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .btn--primary {
+    padding: 10px 15px;
+  }
+
+  .btn--primary span {
+    font-size: 0.85rem;
+  }
+
+  .btn--primary i {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ajuste global para todas as seções no Mobile */
+@media (max-width: 768px) {
+  section,
+  #home,
+  #projetos,
+  #sobre,
+  #contato {
+    scroll-margin-top: 0px;
+  }
+}
+
+/* Estilos para telas maiores (Desktop) */
 @media (min-width: 768px) {
   .nav--mobile {
     display: none;
@@ -769,6 +865,10 @@ footer p {
     margin: 0;
     padding: 0;
     gap: 10px;
+  }
+
+  .menu--social {
+    gap: 1rem;
   }
 
   .menu__link {
@@ -925,9 +1025,26 @@ footer p {
     align-items: start;
     padding: 0rem 5rem 5rem;
   }
+
+  .menu--contato {
+    gap: 5rem;
+  }
+
+  .menu--contato li {
+    width: 120px;
+  }
+
+  .menu--contato a {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
 }
 
 @media (max-width: 1000px) and (min-width: 768px) {
+  #home {
+    scroll-margin-top: 100px;
+  }
+
   .apresentacao__conteudo__titulo {
     font-size: 1.7rem;
   }
