@@ -1004,6 +1004,10 @@ footer p {
     width: auto;
   }
 
+  .about__text-wrapper p {
+    font-size: 1.25rem;
+  }
+
   .about__content1 {
     padding: 0rem 10rem 5rem;
   }
