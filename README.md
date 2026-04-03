@@ -1,7 +1,11 @@
-# 🚀 Ismael Fernandes | Portfólio Full-Stack & UI/UX
+<div align=center>
+  
+# 🚀 Ismael Fernandes | Portfólio Front-End Developer
+
+</div>
 
 <p align="center">
-  <img src="assets/images/capa-readme.jpeg" alt="Capa do Portfólio - Ismael Fernandes" width="100%">
+  <img src="assets/images/capa-readme.jpeg" alt="Capa do Portfólio - Ismael Fernandes" width="80%" height="400px">
 </p>
 
 > **"Unindo a precisão do desenvolvimento de sistemas à sensibilidade do design para criar experiências digitais memoráveis."**
